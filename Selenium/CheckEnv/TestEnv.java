@@ -11,6 +11,7 @@ public class TestEnv {
 	
   @Test
   public void TC_01() {
+	  System.out.print("test");
   }
   @BeforeClass
   public void beforeClass() {
