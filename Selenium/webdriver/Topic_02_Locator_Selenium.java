@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 
-public class Topic_00_Template {
+public class Topic_02_Locator_Selenium {
 	WebDriver driver;
 
 	@BeforeClass
@@ -23,19 +23,11 @@ public class Topic_00_Template {
 
 	@Test
 	public void TC_01() {
-		driver.get("");
+		driver.get("http://facebook.com");
+		driver.findElement(By.name(""));
 
 	}
-	@Test
-	public void TC_02() {
-		driver.get("");
 
-	}
-	@Test
-	public void TC_03() {
-		driver.get("");
-
-	}
 
 	@AfterClass
 	public void afterClass() {
