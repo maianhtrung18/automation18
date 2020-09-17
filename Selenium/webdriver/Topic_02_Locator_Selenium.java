@@ -23,7 +23,7 @@ public class Topic_02_Locator_Selenium {
 
 	@Test
 	public void TC_01() {
-		driver.get("http://facebook.com");
+		driver.get("http://live.demoguru99.com/");
 		driver.findElement(By.name(""));
 
 	}
