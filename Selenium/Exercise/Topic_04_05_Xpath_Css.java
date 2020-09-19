@@ -2,6 +2,7 @@ package Exercise;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
 
 import static org.testng.Assert.assertEquals;
 
@@ -12,11 +13,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 
 public class Topic_04_05_Xpath_Css {
 	WebDriver driver;
 
-	@BeforeClass
+	@BeforeTest
 	public void beforeClass() {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -25,7 +27,7 @@ public class Topic_04_05_Xpath_Css {
 	}
 
 	@Test
-	public void TC_01() throws InterruptedException {
+	public void TC_01_Login_With_Empty_Email_And_Password() throws InterruptedException {
 		// Navigate to index
 		driver.get("http://live.demoguru99.com/");
 		// click account button on menu bar
@@ -44,7 +46,7 @@ public class Topic_04_05_Xpath_Css {
 	}
 
 	@Test
-	public void TC_02() {
+	public void TC_02_Login_With_Invalid_Email() {
 		// Navigate to index
 		driver.get("http://live.demoguru99.com/");
 		// click account button on menu bar
@@ -63,7 +65,7 @@ public class Topic_04_05_Xpath_Css {
 	}
 
 	@Test
-	public void TC_03() {
+	public void TC_03_Login_With_Invalid_Password() {
 		// Navigate to index
 		driver.get("http://live.demoguru99.com/");
 		// click account button on menu bar
@@ -83,7 +85,7 @@ public class Topic_04_05_Xpath_Css {
 	}
 
 	@Test
-	public void TC_04() {
+	public void TC_04_Login_With_Incorrect_Password() {
 		// Navigate to index
 		driver.get("http://live.demoguru99.com/");
 		// click account button on menu bar
@@ -103,7 +105,7 @@ public class Topic_04_05_Xpath_Css {
 	}
 
 	@Test
-	public void TC_05() {
+	public void TC_05_Login_With_Correct_Email_And_Password() {
 		// Navigate to index
 		driver.get("http://live.demoguru99.com/");
 		// click account button on menu bar
@@ -130,11 +132,13 @@ public class Topic_04_05_Xpath_Css {
 		driver.findElement(By.xpath("//span[text()='Account' and @class='label']")).click();
 		// click Log out on menu side
 		driver.findElement(By.xpath("//*[@id='header-account']//a[@title='Log Out']")).click();
+		// Verify home page is displayed
+		assertEquals(true, driver.findElement(By.xpath("//*[@id='header']//img[@class='large']")).isDisplayed());
 
 	}
 
 	@Test
-	public void TC_06() {
+	public void TC_06_Create_An_Account() {
 		String firstName = "Mai";
 		String lastName = "Anh";
 		String email = new Random().nextInt(9999999) + "Anh@gmail.com";
@@ -171,12 +175,11 @@ public class Topic_04_05_Xpath_Css {
 		driver.findElement(By.xpath("//span[text()='Account' and @class='label']")).click();
 		// click Log out on menu side
 		driver.findElement(By.xpath("//*[@id='header-account']//a[@title='Log Out']")).click();
-		// check if user go to home page
+		// Verify home page is displayed
 		assertEquals(true, driver.findElement(By.xpath("//*[@id='header']//img[@class='large']")).isDisplayed());
-
 	}
 
-	@AfterClass
+	@AfterTest
 	public void afterClass() {
 		driver.quit();
 	}
