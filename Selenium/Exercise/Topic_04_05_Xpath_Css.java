@@ -126,7 +126,6 @@ public class Topic_04_05_Xpath_Css {
 		String[] infomation = driver.findElement(By.xpath("//a[text()='Change Password']/parent::p")).getText().split("\n");
 		assertEquals(infomation[0], "Automation Testing");
 		assertEquals(infomation[1], "automation_13@gmail.com");
-
 		// click account button on menu bar
 		driver.findElement(By.xpath("//span[text()='Account' and @class='label']")).click();
 		// click Log out on menu side
