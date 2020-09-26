@@ -1,19 +1,15 @@
 package Exercise;
 
-import org.testng.annotations.Test;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
-
 import static org.testng.Assert.assertEquals;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class Topic_04_05_Xpath_Css {
 	WebDriver driver;
@@ -118,7 +114,7 @@ public class Topic_04_05_Xpath_Css {
 		driver.findElement(By.id("pass")).sendKeys("123123");
 		// click submit button
 		driver.findElement(By.cssSelector("#send2")).click();
-		// Verify dashboard
+		// Verify dashboard is displayed
 		String dashboard = driver.findElement(By.cssSelector(".page-title>h1")).getText();
 		assertEquals(dashboard, "My Dashboard".toUpperCase());
 		// Verify hello
@@ -137,7 +133,7 @@ public class Topic_04_05_Xpath_Css {
 
 	}
 
-	@Test
+	@Test 
 	public void TC_06_Create_An_Account() {
 		String firstName = "Mai";
 		String lastName = "Anh";
